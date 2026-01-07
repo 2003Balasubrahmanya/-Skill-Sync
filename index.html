@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillSync</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#56d8ff,#457b9d,#a8dadc,#e63946);
+    background-size:300% 300%;
+    animation:gradientCycle 15s ease infinite;
+    color:#fff;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+@keyframes gradientCycle{
+    0%,100%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+}
+
+/* ===== HEADER ===== */
+header{
+    background:rgba(0,0,0,0.65);
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.4);
+}
+
+.logo{
+    font-size:1.6rem;
+    font-weight:bold;
+}
+
+/* ===== NAV ===== */
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#fff;
+    font-weight:bold;
+    padding:8px 12px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#f39c12;
+}
+
+/* ===== DROPDOWN ===== */
+.dropdown{
+    position:relative;
+}
+
+.dropdown-content{
+    position:absolute;
+    top:35px;
+    left:0;
+    background:rgba(0,0,0,0.85);
+    border-radius:10px;
+    min-width:220px;
+    display:none;
+    flex-direction:column;
+    box-shadow:0 8px 20px rgba(0,0,0,0.5);
+}
+
+.dropdown-content a{
+    padding:12px 15px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.dropdown-content a:last-child{
+    border-bottom:none;
+}
+
+.dropdown:hover .dropdown-content{
+    display:flex;
+}
+
+/* ===== MAIN ===== */
+main{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+h1{
+    font-size:clamp(2rem,5vw,3rem);
+    margin-bottom:40px;
+    text-shadow:2px 2px 8px rgba(0,0,0,0.5);
+}
+
+/* ===== BUTTONS ===== */
+.button-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+    justify-content:center;
+}
+
+.btn{
+    background:rgba(0,0,0,0.75);
+    padding:16px 32px;
+    border-radius:15px;
+    border:3px solid #f39c12;
+    color:#fff;
+    font-weight:bold;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:linear-gradient(45deg,#e63946,#f39c12);
+    transform:scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:rgba(0,0,0,0.65);
+    text-align:center;
+    padding:12px;
+    font-size:0.9rem;
+}
+
+/* ===== MOBILE ===== */
+.menu-toggle{
+    display:none;
+    font-size:1.8rem;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+    nav{
+        position:absolute;
+        top:65px;
+        right:0;
+        background:rgba(0,0,0,0.9);
+        width:100%;
+        display:none;
+        flex-direction:column;
+        text-align:center;
+    }
+
+    nav ul{
+        flex-direction:column;
+        padding:15px 0;
+    }
+
+    .dropdown-content{
+        position:static;
+        box-shadow:none;
+        background:rgba(255,255,255,0.05);
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    nav.active{
+        display:flex;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">SkillSync</div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav id="nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+
+            <li class="dropdown">
+                <a href="#">Services ▾</a>
+                <div class="dropdown-content">
+                    <a href="https://skill-sync-w3uc.onrender.com">Job Title Recommendation</a>
+                    <a href="https://resume-builder5.onrender.com">Resume Builder</a>
+                    <a href="https://resume-optimize3.onrender.com">Resume Evaluator</a>
+                    <a href="https://project-interview8.onrender.com">Interview Prep</a>
+                </div>
+            </li>
+
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1>Welcome to SkillSync</h1>
+
+    <div class="button-container">
+        <a class="btn" href="https://skill-sync-w3uc.onrender.com">Job Title Recommendation</a>
+        <a class="btn" href="https://resume-builder5.onrender.com">Resume Builder</a>
+        <a class="btn" href="https://resume-optimize3.onrender.com">Resume Evaluator</a>
+        <a class="btn" href="https://project-interview8.onrender.com">Interview</a>
+    </div>
+</main>
+
+<footer>
+    © 2026 SkillSync | AI-Powered Career Companion
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("nav").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
